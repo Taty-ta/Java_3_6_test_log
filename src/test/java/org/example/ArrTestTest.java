@@ -1,6 +1,7 @@
 package org.example;
 
 import org.junit.AfterClass;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,9 +26,31 @@ private ArrTest arrTest;
         assertThrows(RuntimeException.class,
                 () -> arrTest.newArr(new int[]{0, 3, 7, 5, 0, 0, 3, 2}, 1));
     }
-    // task 2
     @Test
-    void checkARR() {
+    void newArrAfter4() {
+       int[] in = new int[] {1, 3, 4, 5, 6, 8};
+       int[] out = new int[] {5,6,8};
+       int n = 4;
+        Assertions.assertArrayEquals(out, ArrTest.newArr(in, n));
+    }
+
+    // task 2
+    // если бы возвращал булево
+   /* @Test
+    void test1ControlOnly4() {
+        int[] in = new int[] {1, 3, 4, 5, 6, 8};
+
+        Assertions.assertFalse(ArrTest.checkARR(in));
+    }
+
+    @Test
+   public void test2ControlOnly4() {
+        int[] in = new int[] {1, 3, 4, 5, 6, 8};
+
+        Assertions.assertTrue(ArrTest.checkARR(in));
+    }*/
+    @Test
+   public void checkARR() {
         arrTest.checkARR(new int[]{1, 4, 4, 1, 1, 4, 3});
     }
     @Test
